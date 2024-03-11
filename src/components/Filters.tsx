@@ -3,9 +3,10 @@ import submitIcon from "../assets/submit-icon.svg";
 import selectIcon from "../assets/select-icon.svg";
 import { useContext, useRef, FormEvent } from "react";
 import { CryptoContext } from "../content/CryptoContext";
+import resetIcon from "../assets/reset.svg";
 
 const Filters: React.FC = () => {
-  let { setCurreny, setSortBy } = useContext<any>(CryptoContext);
+  let { setCurreny, setSortBy, resetSearch } = useContext<any>(CryptoContext);
   const currencyRef = useRef<HTMLInputElement>(null);
   const handleCurrencySubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -65,6 +66,12 @@ const Filters: React.FC = () => {
             className="w-[1rem] h-auto absolute right-1 top-2 pointer-events-none"
           />
         </label>
+        <button
+          className="w-[2rem] ml-4 hover:scale-110 transition-all transition-ease relative right-0 top-0"
+          onClick={resetSearch}
+        >
+          <img className="w-full h-full  fill-cyan" src={resetIcon} alt="" />
+        </button>
       </div>
     </div>
   );
